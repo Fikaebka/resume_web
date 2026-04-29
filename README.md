@@ -16,3 +16,7 @@
 -  Scroll-driven анимации (CSS `animation-timeline`)
 -  Современная палитра oklch
 -  Поддержка `prefers-reduced-motion`
+
+## Ссылка 
+
+https://fikaebka.github.io/resume_web/
