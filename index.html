@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Артём Кухарев – Android-разработчик</title>
+  <meta name="description"
+    content="Trainee/Junior Android Developer - Kotlin, Java, Android SDK, Jetpack Compose. Минск, Беларусь.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Артём Кухарев">
+  <meta name="theme-color" content="#01696f" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171614" media="(prefers-color-scheme: dark)">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Артём Кухарев - Android-разработчик">
+  <meta property="og:description"
+    content="Trainee/Junior Android Developer - Kotlin, Java, Android SDK. Минск, Беларусь.">
+  <meta property="og:image" content="photo.png">
+  <meta property="og:locale" content="ru_RU">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Артём Кухарев - Android-разработчик">
+  <meta name="twitter:description"
+    content="Trainee/Junior Android Developer - Kotlin, Java, Android SDK. Минск, Беларусь.">
+  <meta name="twitter:image" content="photo.png">
+  <!-- Favicon (inline SVG, no external file needed) -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><rect width='28' height='28' rx='8' fill='%2301696f'/><text x='14' y='19' font-family='serif' font-size='13' font-weight='700' text-anchor='middle' fill='white'>АК</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300..700&subset=cyrillic,latin&display=swap"
+    rel="stylesheet">
+  <style>
+    :root,
+    [data-theme="light"] {
+      --bg: #f7f6f2;
+      --sf: #f9f8f5;
+      --sf2: #fbfbf9;
+      --off: #f0ede8;
+      --div: #dcd9d5;
+      --brd: #d4d1ca;
+      --tx: #28251d;
+      --mu: #7a7974;
+      --fa: #bab9b4;
+      --pr: #01696f;
+      --prh: #0c4e54;
+      --phl: #cedcd8;
+      --shsm: 0 1px 2px oklch(0.2 0.01 80/.06);
+      --shmd: 0 4px 12px oklch(0.2 0.01 80/.08);
+      --shlg: 0 12px 32px oklch(0.2 0.01 80/.12);
+      --rsm: .375rem;
+      --rmd: .5rem;
+      --rlg: .75rem;
+      --rxl: 1rem;
+      --rfu: 9999px;
+      --s1: .25rem;
+      --s2: .5rem;
+      --s3: .75rem;
+      --s4: 1rem;
+      --s5: 1.25rem;
+      --s6: 1.5rem;
+      --s8: 2rem;
+      --s10: 2.5rem;
+      --s12: 3rem;
+      --s16: 4rem;
+      --s24: 6rem;
+      --txs: clamp(.75rem, .7rem + .25vw, .875rem);
+      --tsm: clamp(.875rem, .8rem + .35vw, 1rem);
+      --tbs: clamp(1rem, .95rem + .25vw, 1.125rem);
+      --tlg: clamp(1.125rem, 1rem + .75vw, 1.5rem);
+      --txl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --t2x: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --the: clamp(2.5rem, 1rem + 5vw, 5.5rem);
+      --fd: 'Playfair Display', Georgia, serif;
+      --fb: 'Inter', 'Helvetica Neue', sans-serif;
+      --tr: 180ms cubic-bezier(.16, 1, .3, 1);
+      --cw: 960px;
+      --cn: 640px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #171614;
+      --sf: #1c1b19;
+      --sf2: #201f1d;
+      --off: #1d1c1a;
+      --div: #262523;
+      --brd: #393836;
+      --tx: #cdccca;
+      --mu: #797876;
+      --fa: #5a5957;
+      --pr: #4f98a3;
+      --prh: #227f8b;
+      --phl: #313b3b;
+      --shsm: 0 1px 2px oklch(0 0 0/.2);
+      --shmd: 0 4px 12px oklch(0 0 0/.3);
+      --shlg: 0 12px 32px oklch(0 0 0/.4);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--s16)
+    }
+
+    body {
+      min-height: 100dvh;
+      font-family: var(--fb);
+      font-size: var(--tbs);
+      color: var(--tx);
+      background: var(--bg);
+      line-height: 1.6;
+      transition: background var(--tr), color var(--tr)
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      background: var(--off)
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      text-wrap: balance;
+      line-height: 1.15;
+      font-family: var(--fd)
+    }
+
+    p,
+    li {
+      text-wrap: pretty
+    }
+
+    a,
+    button {
+      transition: color var(--tr), background var(--tr), box-shadow var(--tr)
+    }
+
+    button {
+      cursor: pointer;
+      background: none;
+      border: none;
+      font: inherit;
+      color: inherit
+    }
+
+    ::selection {
+      background: oklch(from var(--pr) l c h/.2)
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--pr);
+      outline-offset: 3px;
+      border-radius: var(--rsm)
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important
+      }
+    }
+
+    .fi {
+      opacity: 1
+    }
+
+    @supports(animation-timeline:scroll()) {
+      .fi {
+        opacity: 0;
+        animation: rfade linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 80%
+      }
+    }
+
+    @keyframes rfade {
+      to {
+        opacity: 1
+      }
+    }
+
+    /* layout */
+    .c {
+      max-width: var(--cw);
+      margin-inline: auto;
+      padding-inline: clamp(var(--s4), 4vw, var(--s8))
+    }
+
+    .cn {
+      max-width: var(--cn);
+      margin-inline: auto;
+      padding-inline: clamp(var(--s4), 4vw, var(--s8))
+    }
+
+    /* nav */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: color-mix(in oklch, var(--bg) 85%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid oklch(from var(--tx) l c h/.07)
+    }
+
+    .ni {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 3.5rem
+    }
+
+    .nlogo {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+      font-family: var(--fd);
+      font-size: var(--tlg);
+      color: var(--tx);
+      text-decoration: none
+    }
+
+    .nlinks {
+      display: flex;
+      align-items: center;
+      gap: var(--s6);
+      list-style: none
+    }
+
+    .nlinks a {
+      font-size: var(--tsm);
+      font-weight: 500;
+      color: var(--mu);
+      text-decoration: none
+    }
+
+    .nlinks a:hover {
+      color: var(--tx)
+    }
+
+    .tt {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--rfu);
+      color: var(--mu);
+      border: 1px solid oklch(from var(--tx) l c h/.1)
+    }
+
+    .tt:hover {
+      color: var(--tx);
+      background: var(--off)
+    }
+
+    @media(max-width:600px) {
+      .nlinks {
+        display: none
+      }
+    }
+
+    /* hero */
+    .hero {
+      padding-block: clamp(var(--s16), 10vw, var(--s24))
+    }
+
+    .hgrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(var(--s8), 5vw, var(--s16));
+      align-items: center
+    }
+
+    .hew {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s2);
+      font-size: var(--txs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--pr);
+      margin-bottom: var(--s4)
+    }
+
+    .hew::before {
+      content: '';
+      width: 20px;
+      height: 2px;
+      background: var(--pr);
+      border-radius: var(--rfu)
+    }
+
+    .htitle {
+      font-family: var(--fd);
+      font-size: var(--the);
+      line-height: 1.05;
+      margin-bottom: var(--s2)
+    }
+
+    .htitle em {
+      font-style: italic;
+      color: var(--pr)
+    }
+
+    .hsub {
+      font-size: var(--tlg);
+      color: var(--mu);
+      margin-bottom: var(--s6);
+      font-weight: 300
+    }
+
+    .hdesc {
+      color: var(--mu);
+      max-width: 52ch;
+      margin-bottom: var(--s8)
+    }
+
+    .hctas {
+      display: flex;
+      gap: var(--s3);
+      flex-wrap: wrap
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s2);
+      padding: var(--s3) var(--s5);
+      border-radius: var(--rfu);
+      font-size: var(--tsm);
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      border: none
+    }
+
+    .bp {
+      background: var(--pr);
+      color: #fff
+    }
+
+    .bp:hover {
+      background: var(--prh);
+      box-shadow: var(--shmd)
+    }
+
+    .bg2 {
+      background: transparent;
+      color: var(--tx);
+      border: 1px solid oklch(from var(--tx) l c h/.15)
+    }
+
+    .bg2:hover {
+      background: var(--off)
+    }
+
+    .hiw {
+      position: relative
+    }
+
+    .hibg {
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(ellipse at 60% 40%, color-mix(in oklch, var(--pr) 12%, transparent), transparent 70%);
+      border-radius: var(--rxl);
+      z-index: 0
+    }
+
+    .himg {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--rxl);
+      overflow: hidden;
+      box-shadow: var(--shlg);
+      background: var(--off)
+    }
+
+    .himg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .hbadge {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      z-index: 2;
+      background: var(--sf);
+      border: 1px solid oklch(from var(--tx) l c h/.1);
+      box-shadow: var(--shmd);
+      border-radius: var(--rxl);
+      padding: var(--s3) var(--s4);
+      display: flex;
+      align-items: center;
+      gap: var(--s2)
+    }
+
+    .hbdot {
+      width: 8px;
+      height: 8px;
+      border-radius: var(--rfu);
+      background: #22c55e;
+      animation: pulse 2s ease-in-out infinite
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: .5
+      }
+    }
+
+    .hbtx {
+      font-size: var(--txs);
+      font-weight: 500
+    }
+
+    @media(max-width:768px) {
+      .hgrid {
+        grid-template-columns: 1fr
+      }
+
+      .hiw {
+        order: -1;
+        max-width: 220px;
+        margin-inline: auto
+      }
+
+      .hbadge {
+        bottom: -12px;
+        right: -12px
+      }
+
+      .hcnt {
+        text-align: center
+      }
+
+      .hew,
+      .hctas {
+        justify-content: center
+      }
+
+      .hdesc {
+        margin-inline: auto
+      }
+    }
+
+    /* section */
+    .sec {
+      padding-block: clamp(var(--s12), 7vw, var(--s24))
+    }
+
+    .sa {
+      background: var(--sf)
+    }
+
+    .slbl {
+      font-size: var(--txs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--pr);
+      margin-bottom: var(--s2)
+    }
+
+    .stit {
+      font-family: var(--fd);
+      font-size: var(--txl);
+      color: var(--tx);
+      margin-bottom: var(--s8)
+    }
+
+    .stit span {
+      color: var(--pr);
+      font-style: italic
+    }
+
+    /* skills */
+    .sgrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+      gap: var(--s4)
+    }
+
+    .scard {
+      background: var(--sf);
+      border: 1px solid oklch(from var(--tx) l c h/.08);
+      border-radius: var(--rxl);
+      padding: var(--s5);
+      box-shadow: var(--shsm);
+      transition: box-shadow var(--tr), transform var(--tr)
+    }
+
+    .sa .scard {
+      background: var(--bg)
+    }
+
+    .scard:hover {
+      box-shadow: var(--shmd);
+      transform: translateY(-2px)
+    }
+
+    .sico {
+      width: 36px;
+      height: 36px;
+      margin-bottom: var(--s3);
+      color: var(--pr)
+    }
+
+    .sname {
+      font-size: var(--tsm);
+      font-weight: 600;
+      margin-bottom: var(--s2)
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s1)
+    }
+
+    .tag {
+      font-size: var(--txs);
+      font-weight: 500;
+      padding: 2px var(--s2);
+      border-radius: var(--rfu);
+      background: var(--phl);
+      color: var(--pr)
+    }
+
+    [data-theme="dark"] .tag {
+      color: #4f98a3
+    }
+
+    .tn {
+      background: oklch(from var(--tx) l c h/.08);
+      color: var(--mu)
+    }
+
+    /* timeline */
+    .tl {
+      display: flex;
+      flex-direction: column
+    }
+
+    .ti {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: var(--s6);
+      padding-bottom: var(--s8);
+      position: relative
+    }
+
+    .ti:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 119px;
+      top: var(--s8);
+      bottom: 0;
+      width: 1px;
+      background: var(--div)
+    }
+
+    .tmeta {
+      text-align: right;
+      padding-top: var(--s1)
+    }
+
+    .tdate {
+      font-size: var(--txs);
+      font-weight: 500;
+      color: var(--mu);
+      display: block;
+      margin-bottom: var(--s1)
+    }
+
+    .tdot {
+      width: 10px;
+      height: 10px;
+      border-radius: var(--rfu);
+      background: var(--pr);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--pr);
+      margin-left: auto
+    }
+
+    .tcnt {
+      padding-left: var(--s6);
+      border-left: 1px solid var(--div)
+    }
+
+    .ttit {
+      font-family: var(--fd);
+      font-size: var(--tlg);
+      margin-bottom: var(--s1)
+    }
+
+    .tco {
+      font-size: var(--tsm);
+      color: var(--pr);
+      font-weight: 500;
+      margin-bottom: var(--s3)
+    }
+
+    .tdesc {
+      font-size: var(--tsm);
+      color: var(--mu);
+      line-height: 1.65
+    }
+
+    .tdesc li {
+      list-style: none;
+      padding-left: var(--s4);
+      position: relative;
+      margin-bottom: var(--s1)
+    }
+
+    .tdesc li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--fa)
+    }
+
+    @media(max-width:600px) {
+      .ti {
+        grid-template-columns: 1fr;
+        gap: var(--s2)
+      }
+
+      .ti::after {
+        display: none
+      }
+
+      .tmeta {
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: var(--s2)
+      }
+
+      .tdot {
+        margin-left: 0
+      }
+
+      .tcnt {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid var(--div);
+        padding-top: var(--s3)
+      }
+    }
+
+    /* contact */
+    .cgrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+      gap: var(--s5)
+    }
+
+    .cl {
+      display: flex;
+      align-items: center;
+      gap: var(--s3);
+      padding: var(--s4) var(--s5);
+      background: var(--sf);
+      border: 1px solid oklch(from var(--tx) l c h/.08);
+      border-radius: var(--rxl);
+      text-decoration: none;
+      color: var(--tx);
+      box-shadow: var(--shsm);
+      transition: box-shadow var(--tr), transform var(--tr)
+    }
+
+    .sa .cl {
+      background: var(--bg)
+    }
+
+    .cl:hover {
+      box-shadow: var(--shmd);
+      transform: translateY(-2px)
+    }
+
+    .clico {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--rlg);
+      background: var(--phl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--pr);
+      flex-shrink: 0
+    }
+
+    .cllbl {
+      font-size: var(--txs);
+      color: var(--mu);
+      margin-bottom: 2px
+    }
+
+    .clval {
+      font-size: var(--tsm);
+      font-weight: 500
+    }
+
+    @media(max-width:600px) {
+      .cgrid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    footer {
+      border-top: 1px solid oklch(from var(--tx) l c h/.07);
+      padding-block: var(--s8);
+      text-align: center
+    }
+
+    footer p {
+      font-size: var(--txs);
+      color: var(--fa)
+    }
+
+    .divider {
+      height: 1px;
+      background: oklch(from var(--tx) l c h/.07)
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="c ni">
+      <a href="#" class="nlogo">
+        <svg aria-label="АК" width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="8" fill="var(--pr)" />
+          <text x="14" y="19" font-family="serif" font-size="13" font-weight="700" text-anchor="middle"
+            fill="white">АК</text>
+        </svg>
+        Артём Кухарев
+      </a>
+      <ul class="nlinks">
+        <li><a href="#about" data-i18n="nav.about">Обо мне</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Навыки</a></li>
+        <li><a href="#experience" data-i18n="nav.edu">Образование</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Контакты</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:var(--s2)">
+        <button class="tt" data-lang-toggle aria-label="Switch language">
+          <span style="font-size:13px;font-weight:600;letter-spacing:.02em">EN</span>
+        </button>
+        <button class="tt" data-theme-toggle aria-label="Переключить тему">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="c">
+      <div class="hgrid">
+        <div class="hcnt">
+          <div class="hew" data-i18n="hero.status">Ищу работу · Полная занятость</div>
+          <h1 class="htitle"><span data-i18n="hero.firstname">Артём</span><br><em data-i18n="hero.lastname">Кухарев</em>
+          </h1>
+          <p class="hsub" data-i18n="hero.role">Android-разработчик</p>
+          <p class="hdesc" data-i18n="hero.desc">Пытаюсь стать Trainee/Junior Android-разработчиком. Есть высшее
+            образование в области мобильных систем (пишу дипломную работу). Из проектов — программный комплекс на
+            Android для автоматизации бизнес-процессов дилерского центра и учебный ИИ-ассистент.</p>
+          <div class="hctas">
+            <a href="#contact" class="btn bp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,12 2,6" />
+              </svg>
+              Связаться
+            </a>
+            <a href="#skills" class="btn bg2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+              Навыки
+            </a>
+          </div>
+        </div>
+        <div class="hiw fi">
+          <div class="hibg"></div>
+          <div class="himg">
+            <img src="photo.png" alt="Артём Кухарев" width="500" height="667" loading="lazy">
+          </div>
+          <div class="hbadge">
+            <div class="hbdot"></div>
+            <span class="hbtx" data-i18n="hero.badge">Минск, Беларусь</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="sec sa" id="about">
+    <div class="cn">
+      <div class="slbl" data-i18n="about.label">Обо мне</div>
+      <h2 class="stit"><span data-i18n="about.title1">Личная</span> <span data-i18n="about.title2">информация</span>
+      </h2>
+      <div class="sgrid">
+        <div class="scard fi">
+          <svg class="sico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          <div class="sname" data-i18n="about.age">21 год, 9 апреля 2005</div>
+          <div class="tags"><span class="tag" data-i18n="about.gender">Мужчина</span><span class="tag tn">Минск</span>
+          </div>
+        </div>
+        <div class="scard fi">
+          <svg class="sico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="7" width="20" height="14" rx="2" />
+            <path d="M16 7V5a4 4 0 0 0-8 0v2" />
+          </svg>
+          <div class="sname" data-i18n="about.employment">Занятость</div>
+          <div class="tags"><span class="tag" data-i18n="about.fulltime">Полная занятость</span><span class="tag tn"
+              data-i18n="about.onsite">На месте работодателя</span>
+          </div>
+        </div>
+        <div class="scard fi">
+          <svg class="sico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="10" r="3" />
+            <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z" />
+          </svg>
+          <div class="sname" data-i18n="about.citizenship">Гражданство</div>
+          <div class="tags"><span class="tag" data-i18n="about.country">Беларусь</span><span class="tag tn"
+              data-i18n="about.permit">Разрешение на работу: Беларусь</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="skills">
+    <div class="c">
+      <div class="slbl" data-i18n="skills.label">Стек</div>
+      <h2 class="stit"><span data-i18n="skills.title1">Навыки &amp;</span> <span
+          data-i18n="skills.title2">технологии</span></h2>
+      <div class="sgrid">
+
+        <div class="scard fi">
+          <svg class="sico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="5" y="2" width="14" height="20" rx="2" />
+            <line x1="12" y1="18" x2="12.01" y2="18" />
+          </svg>
+          <div class="sname">Android &amp; Mobile</div>
+          <div class="tags">
+            <span class="tag">Android</span><span class="tag">Android SDK</span><span class="tag">Kotlin</span>
+            <span class="tag">Java</span><span class="tag tn">Jetpack Compose</span>
+          </div>
+        </div>
+
+        <div class="scard fi">
+          <svg class="sico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>
+          <div class="sname" data-i18n="skills.langs">Языки программирования</div>
+          <div class="tags">
+            <span class="tag">Kotlin</span><span class="tag">Java</span>
+            <span class="tag tn">SQL</span>
+          </div>
+        </div>
+
+        <div class="scard fi">
+          <svg class="sico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          <div class="sname" data-i18n="skills.tools">Инструменты</div>
+          <div class="tags">
+            <span class="tag">Git</span>
+            <span class="tag tn" data-i18n="skills.learning">Обучение и развитие</span>
+          </div>
+        </div>
+
+        <div class="scard fi">
+          <svg class="sico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          <div class="sname" data-i18n="skills.human_langs">Языки</div>
+          <div class="tags">
+            <span class="tag" data-i18n="skills.russian">Русский</span>
+            <span class="tag" data-i18n="skills.english">Английский-B1</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sa" id="experience">
+    <div class="cn">
+      <div class="slbl" data-i18n="edu.label">Образование</div>
+      <h2 class="stit"><span data-i18n="edu.title1">Высшее</span> <span data-i18n="edu.title2">образование</span></h2>
+      <div class="tl">
+
+        <div class="ti fi">
+          <div class="tmeta"><span class="tdate">2022 — 2026</span>
+            <div class="tdot"></div>
+          </div>
+          <div class="tcnt">
+            <div class="ttit" data-i18n="edu.uni">БГУИР</div>
+            <div class="tco" data-i18n="edu.uni_full">Белорусский государственный университет информатики и
+              радиоэлектроники, Минск</div>
+            <ul class="tdesc">
+              <li data-i18n="edu.faculty">Факультет компьютерного проектирования</li>
+              <li data-i18n="edu.spec">Специальность: Программируемые мобильные системы</li>
+              <li data-i18n="edu.degree">Высшее образование, 2026</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="cn">
+      <div class="slbl" data-i18n="contact.label">Контакты</div>
+      <h2 class="stit"><span data-i18n="contact.title1">Напишите</span> <span data-i18n="contact.title2">мне</span></h2>
+      <div class="cgrid">
+        <a href="tel:+375296447534" class="cl">
+          <div class="clico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+          </div>
+          <div>
+            <div class="cllbl" data-i18n="contact.phone">Телефон</div>
+            <div class="clval">+375 (29) 644-75-34</div>
+          </div>
+        </a>
+        <a href="mailto:a.kuharev2535@gmail.com" class="cl">
+          <div class="clico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,12 2,6" />
+            </svg>
+          </div>
+          <div>
+            <div class="cllbl" data-i18n="contact.email_label">Email · предпочтительно</div>
+            <div class="clval">a.kuharev2535@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://t.me/artimiom" class="cl" target="_blank" rel="noopener noreferrer">
+          <div class="clico">
+            <img src="https://cdn.simpleicons.org/telegram/0088cc" alt="Telegram" width="20" height="20" loading="lazy">
+          </div>
+          <div>
+            <div class="cllbl">Telegram</div>
+            <div class="clval">@artimiom</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="c">
+      <p data-i18n="footer">2026 Артём Кухарев · Android-разработчик</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      /* ---- Translations ---- */
+      var i18n = {
+        ru: {
+          'nav.about': 'Обо мне', 'nav.skills': 'Навыки', 'nav.edu': 'Образование', 'nav.contact': 'Контакты',
+          'hero.status': 'Ищу работу · Полная занятость', 'hero.firstname': 'Артём', 'hero.lastname': 'Кухарев',
+          'hero.role': 'Android-разработчик',
+          'hero.desc': 'Пытаюсь стать Trainee/Junior Android-разработчиком. Есть высшее образование в области мобильных систем (пишу дипломную работу). Из проектов — программный комплекс на Android для автоматизации бизнес-процессов дилерского центра и учебный ИИ-ассистент.',
+          'hero.badge': 'Минск, Беларусь',
+          'about.label': 'Обо мне', 'about.title1': 'Личная', 'about.title2': 'информация',
+          'about.age': '21 год, 9 апреля 2005', 'about.gender': 'Мужчина',
+          'about.employment': 'Занятость', 'about.fulltime': 'Полная занятость', 'about.onsite': 'На месте работодателя',
+          'about.citizenship': 'Гражданство', 'about.country': 'Беларусь', 'about.permit': 'Разрешение на работу: Беларусь',
+          'skills.label': 'Стек', 'skills.title1': 'Навыки &', 'skills.title2': 'технологии',
+          'skills.langs': 'Языки программирования', 'skills.tools': 'Инструменты', 'skills.learning': 'Обучение и развитие',
+          'skills.human_langs': 'Языки', 'skills.russian': 'Русский', 'skills.english': 'Английский-B1',
+          'edu.label': 'Образование', 'edu.title1': 'Высшее', 'edu.title2': 'образование',
+          'edu.uni': 'БГУИР', 'edu.uni_full': 'Белорусский государственный университет информатики и радиоэлектроники, Минск',
+          'edu.faculty': 'Факультет компьютерного проектирования', 'edu.spec': 'Специальность: Программируемые мобильные системы', 'edu.degree': 'Высшее образование, 2026',
+          'contact.label': 'Контакты', 'contact.title1': 'Напишите', 'contact.title2': 'мне',
+          'contact.phone': 'Телефон', 'contact.email_label': 'Email · предпочтительно',
+          'footer': '2026 Артём Кухарев · Android-разработчик'
+        },
+        en: {
+          'nav.about': 'About', 'nav.skills': 'Skills', 'nav.edu': 'Education', 'nav.contact': 'Contact',
+          'hero.status': 'Looking for a job · Full-time', 'hero.firstname': 'Artem', 'hero.lastname': 'Kukharev',
+          'hero.role': 'Android Developer',
+          'hero.desc': "I'm trying to become an Android Developer Trainee/Junior. I have an academic background in mobile systems (I'm writing my graduation project). My projects include a software suite for the Android operating system to automate business processes at a dealership center and an educational AI assistant.",
+          'hero.badge': 'Minsk, Belarus',
+          'about.label': 'About me', 'about.title1': 'Personal', 'about.title2': 'information',
+          'about.age': '21 y.o., April 9, 2005', 'about.gender': 'Male',
+          'about.employment': 'Employment', 'about.fulltime': 'Full-time', 'about.onsite': 'On-site',
+          'about.citizenship': 'Citizenship', 'about.country': 'Belarus', 'about.permit': 'Work permit: Belarus',
+          'skills.label': 'Stack', 'skills.title1': 'Skills &', 'skills.title2': 'technologies',
+          'skills.langs': 'Programming languages', 'skills.tools': 'Tools', 'skills.learning': 'Learning & growth',
+          'skills.human_langs': 'Languages', 'skills.russian': 'Russian', 'skills.english': 'English-B1',
+          'edu.label': 'Education', 'edu.title1': 'Higher', 'edu.title2': 'education',
+          'edu.uni': 'BSUIR', 'edu.uni_full': 'Belarusian State University of Informatics and Radioelectronics, Minsk',
+          'edu.faculty': 'Faculty of Computer-Aided Design', 'edu.spec': 'Specialty: Programmable Mobile Systems', 'edu.degree': 'Bachelor\'s degree, 2026',
+          'contact.label': 'Contact', 'contact.title1': 'Get in', 'contact.title2': 'touch',
+          'contact.phone': 'Phone', 'contact.email_label': 'Email · preferred',
+          'footer': '2026 Artem Kukharev · Android Developer'
+        }
+      };
+
+      /* ---- Theme toggle ---- */
+      var t = document.querySelector('[data-theme-toggle]'), h = document.documentElement;
+      var d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+      var sun = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+      var moon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      function applyTheme(theme) {
+        d = theme; h.setAttribute('data-theme', theme);
+        if (t) t.innerHTML = theme === 'dark' ? sun : moon;
+      }
+      applyTheme(d);
+      if (t) t.addEventListener('click', function () { applyTheme(d === 'dark' ? 'light' : 'dark') });
+
+      /* ---- Language toggle ---- */
+      var langBtn = document.querySelector('[data-lang-toggle]');
+      var currentLang = localStorage.getItem('lang') || 'ru';
+
+      function applyLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('lang', lang);
+        h.setAttribute('lang', lang);
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (i18n[lang] && i18n[lang][key] !== undefined) {
+            el.textContent = i18n[lang][key];
+          }
+        });
+        if (langBtn) langBtn.querySelector('span').textContent = lang === 'ru' ? 'EN' : 'RU';
+      }
+      applyLang(currentLang);
+      if (langBtn) langBtn.addEventListener('click', function () {
+        applyLang(currentLang === 'ru' ? 'en' : 'ru');
+      });
+
+      /* ---- Smooth scroll ---- */
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var el = document.querySelector(a.getAttribute('href'));
+          if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>
